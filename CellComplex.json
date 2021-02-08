@@ -10,7 +10,7 @@
 
     },
     "additionalProperties": false,
-    "description": "A cell complex, used to handle structure and potentially other voxelization exercises.",
+    "description": "(TEMP TEMP TEMP): A cell complex, used to handle structure and potentially other voxelization exercises.",
     "$id": "CellComplex",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "discriminator": "discriminator",
