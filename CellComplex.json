@@ -7,11 +7,116 @@
     ],
     "required": [],
     "properties": {
-
+        "Vertices": {
+            "type": "array",
+            "description": "List of unique vertices",
+            "items": {
+                "name": "Vertex",
+                "type": "object",
+                "required": ["Id", "Point"],
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "Point": {
+                        "$ref": "https://prod-api.hypar.io/schemas/Vector3"
+                    }
+                }
+            }
+        },
+        "Segments": {
+            "type": "array",
+            "description": "List of unique segments, ignoring direction",
+            "items": {
+                "name": "Segment",
+                "type": "object",
+                "required": ["Id", "Vertex1", "Vertex2"],
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "Vertex1": {
+                        "type": "integer"
+                    },
+                    "Vertex2": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "DirectedSegments": {
+            "type": "array",
+            "description": "List of unique segments, factoring in direction",
+            "items": {
+                "name": "DirectedSegment",
+                "type": "object",
+                "required": ["Id", "SegmentId", "Start", "End"],
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "SegmentId": {
+                        "type": "integer"
+                    },
+                    "Start": {
+                        "type": "integer"
+                    },
+                    "End": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "Faces": {
+            "type": "array",
+            "description": "List of unique faces (no support for normals yet)",
+            "items": {
+                "name": "Face",
+                "type": "object",
+                "required": ["Id", "DirectedSegmentIds"],
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "DirectedSegmentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "Cells": {
+            "type": "array",
+            "description": "List of cells",
+            "items": {
+                "name": "Cell",
+                "type": "object",
+                "required": ["Id", "FaceIds", "BottomFaceId", "TopFaceId"],
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "FaceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "BottomFaceId": {
+                        "type": "integer"
+                    },
+                    "TopFaceId": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
     },
     "additionalProperties": false,
     "description": "(TEMP TEMP TEMP): A cell complex, used to handle structure and potentially other voxelization exercises.",
-    "$id": "CellComplex",
+    "$id": "https://raw.githubusercontent.com/serenayl/hypar-schemas/main/CellComplex.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "discriminator": "discriminator",
     "type": "object",
