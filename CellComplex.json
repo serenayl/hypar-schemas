@@ -1,0 +1,19 @@
+{
+    "x-namespace": "Elements",
+    "allOf": [
+        {
+            "$ref": "https://prod-api.hypar.io/schemas/Element"
+        }
+    ],
+    "required": [],
+    "properties": {
+
+    },
+    "additionalProperties": false,
+    "description": "A cell complex, used to handle structure and potentially other voxelization exercises.",
+    "$id": "CellComplex",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "discriminator": "discriminator",
+    "type": "object",
+    "title": "CellComplex"
+}
