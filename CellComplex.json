@@ -93,7 +93,7 @@
             "items": {
                 "name": "Cell",
                 "type": "object",
-                "required": ["Id", "FaceIds", "BottomFaceId", "TopFaceId"],
+                "required": ["Id", "FaceIds"],
                 "properties": {
                     "Id": {
                         "type": "integer"
